@@ -10,3 +10,5 @@ Side-project
 - Add strict enforce on input field
 - Add "calculator ui component" if you can do that with bulma otherwise don't sweat it.
 - Refactor button component design
+- Do calculator image
+- Do message rendering

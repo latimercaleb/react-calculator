@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import "./App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus, faSubtract, faXmark, faArrowsRotate, faDivide } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const inputRef = useRef(null);
@@ -31,7 +33,6 @@ function App() {
 
   function resetInput(e) {
     e.preventDefault();
-    const inputNumber = Number(inputRef.current.value);
     inputRef.current.value= ''
   };
  
@@ -41,27 +42,50 @@ function App() {
   }; 
  
   return ( 
-    <div className="App"> 
-      <div> 
-        <h1>Simplest Calculator</h1> 
+    <div className="App card container"> 
+      <div className="card-header"> 
+        <h1 className="card-title">Simplest Calculator</h1> 
       </div> 
-      <form> 
-        <p ref={resultRef}> 
-          { result }
-        </p> 
-        <input
-          pattern="[0-9]" 
-          ref={inputRef} 
-          type="number" 
-          placeholder="Type a number" 
-        /> 
-        <button onClick={plus}>add</button>
-        <button onClick={minus}>subtract</button>
-        <button onClick={times}>multiply</button>
-        <button onClick={divide}>divide</button>
-        <button onClick={resetInput}>Reset Input</button>
-        <button onClick={resetResult}>Reset Solution</button> 
-      </form> 
+      <div className="card-content">
+        <div className="content">
+          <p ref={resultRef}> 
+            { result }
+          </p> 
+          <input
+            pattern="[0-9]" 
+            ref={inputRef} 
+            type="number" 
+            placeholder="Type a number"
+            className="input" 
+          /> 
+        </div>
+      </div>
+        <footer className="card-footer">
+          <button className='button is-rounded is-medium is-light is-info card-footer-item'onClick={plus}>
+              <FontAwesomeIcon icon={faCirclePlus} />
+              <span class="icon-text pl-2">Add</span>
+            </button>
+          <button className='button is-rounded is-inverted is-medium is-light is-success  card-footer-item'onClick={minus}>
+            <FontAwesomeIcon icon={faSubtract} />
+            <span class="icon-text pl-2">Subtract</span>
+          </button>
+          <button className='button is-rounded is-inverted is-medium is-light is-info card-footer-item'onClick={times}>
+            <FontAwesomeIcon icon={faXmark} />
+            <span class="icon-text pl-2">Multiply</span>
+            </button>
+          <button className='button is-rounded is-medium is-light is-success card-footer-item'onClick={divide}>
+            <FontAwesomeIcon icon={faDivide} />
+            <span class="icon-text pl-2">Divide</span>
+          </button>
+          <button className='button is-rounded is-medium is-dark card-footer-item'onClick={resetInput}>
+            <FontAwesomeIcon icon={faArrowsRotate} />
+            <span class="icon-text pl-2">Reset Input</span>
+          </button>
+          <button className='button is-rounded is-medium is-dark card-footer-item'onClick={resetResult}>
+            <FontAwesomeIcon icon={faArrowsRotate} />
+            <span class="icon-text pl-2">Reset Solution</span>
+          </button>
+        </footer>
     </div> 
   ); 
 } 
