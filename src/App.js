@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import "./App.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faSubtract, faXmark, faArrowsRotate, faDivide } from '@fortawesome/free-solid-svg-icons';
+import  calculator  from './assets/calculator.jpg';
 
 function App() {
   const inputRef = useRef(null);
@@ -42,21 +43,28 @@ function App() {
   }; 
  
   return ( 
-    <div className="App card container"> 
+    <div className="App card container">
+      <div class="card-image">
+        <figure className="image" style={{height: '96px', opacity: 0.5, zIndex: 0}}>
+          <img src={calculator} alt="Placeholder image"/>
+        </figure>
+      </div>
       <div className="card-header"> 
-        <h1 className="card-title">Simplest Calculator</h1> 
+        <h1 className="card-title is-size-1 has-text-justified is-italic has-text-primary pl-2">Simplest Calculator</h1> 
       </div> 
       <div className="card-content">
         <div className="content">
-          <p ref={resultRef}> 
-            { result }
-          </p> 
+          <div className="box ">
+            <p ref={resultRef} className="is-size-2 has-text-centered has-text-weight-bold is-family-monospace has-text-warning"> 
+              { result }
+            </p> 
+          </div>
           <input
             pattern="[0-9]" 
             ref={inputRef} 
             type="number" 
             placeholder="Type a number"
-            className="input" 
+            className="input is-rounded is-medium is-light is-info" 
           /> 
         </div>
       </div>
